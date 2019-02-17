@@ -12,5 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $instagram = json_encode(config('services.instagram.public'));
+    return view('welcome', compact('instagram'));
 });
+
+// So history mode can work in VueRouter
+// without having to configure server rewrite
+Route::get('/{any}', function () {
+    return redirect('/');
+})->where('any', '.*');

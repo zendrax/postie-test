@@ -40,4 +40,21 @@ return [
         ],
     ],
 
+    'instagram' => [
+        'public' => [
+            'authorization' => [
+                'url' => 'https://api.instagram.com/oauth/authorize',
+            ],
+            'client' => [
+                'id' => env('INSTAGRAM_CLIENT_ID'),
+            ],
+            'redirect' => [
+                'url' => env('APP_URL') . '/authorize',
+            ],
+            'response' => [
+                'type' => 'token',
+            ],
+        ],
+    ],
+
 ];

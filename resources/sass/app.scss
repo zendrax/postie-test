@@ -1,14 +1,32 @@
+@tailwind preflight;
+@tailwind components;
 
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+// add components like .btn, .input
 
-// Variables
-@import 'variables';
+@tailwind utilities;
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+body {
+  * {
+    @apply .font-sans .leading-loose .outline-none .text-grey-darkest;
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    &:focus {
+      @apply .outline-none;
+    }
+
+    &.text-justify {
+      hyphens: auto;
+    }
+  }
+
+  a {
+    @apply .no-underline .text-grey-dark;
+
+    &:hover {
+      @apply .no-underline;
+    }
+
+    &.router-link-active:not(.border) {
+      @apply .text-grey-darkest;
+    }
+  }
 }
